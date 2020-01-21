@@ -1,6 +1,10 @@
-# https://github.com/github/gitignore/blob/master/Python.gitignore
-# 19/01-2020
+# Python .gitignore from https://github.com/github/gitignore/blob/master/Python.gitignore, 19/01-2020
 
+# Do not commit Kaggle data to GitHub as per their TOS
+data/**/*.csv
+data/**/*.zip
+
+# BEGIN Python .gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -130,3 +134,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+# END Python .gitignore
