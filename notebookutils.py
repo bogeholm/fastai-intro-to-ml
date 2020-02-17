@@ -1,4 +1,5 @@
 import os, sys
+import numpy as np
 
 def get_basepath(relative_dir_local='data', relative_dir_google='data'):
     """ Return path to base directory depending on whether the
@@ -16,3 +17,9 @@ def get_basepath(relative_dir_local='data', relative_dir_google='data'):
         return os.path.join(GOOGLE_DRIVE_HOME, relative_dir_google)
     else:
         return os.path.join(JUPYTER_HOME, relative_dir_local)
+
+
+def rmse(y_actual: np.array, y_pred: np.array) -> np.float64:
+    """ Root Mean Squared Error of two nympy vectors, or similar.
+    """
+    return np.sqrt( ((y_actual - y_pred)**2).mean() )
