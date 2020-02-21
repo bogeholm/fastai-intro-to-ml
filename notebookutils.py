@@ -23,3 +23,16 @@ def rmse(y_actual: np.array, y_pred: np.array) -> np.float64:
     """ Root Mean Squared Error of two nympy vectors, or similar.
     """
     return np.sqrt( ((y_actual - y_pred)**2).mean() )
+
+def print_score(model, X_vals, y_vals, sigdig=3):
+    """ Print score of trained model
+    """
+    justify = 8
+    # R squared
+    r2 = np.round(model.score(X_vals, y_vals), sigdig)
+    # RMSE
+    y_pred = model.predict(X_vals)
+    rmse_pred = np.round(rmse(y_pred, y_vals), sigdig)
+    
+    print("R^2:".ljust(justify, ' ') + str(r2))
+    print("RMSE:".ljust(justify, ' ') + str(rmse_pred))
